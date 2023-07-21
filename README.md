@@ -11,7 +11,7 @@
 5) при создании указать файл, куда записывать логи
 6) после перезагрузки проанализировать логи
 
-Ссылка на [вторую практическую работу](https://skillbox.ru/media/](https://github.com/BanShee-new/Containerization/tree/main/HW_2/Readme.md "Механизмы контрольных групп")
+Ссылка на [вторую практическую работу](https://github.com/BanShee-new/Containerization/tree/main/HW_2/Readme.md "Механизмы контрольных групп")
 
 # Урок 3. Введение в Docker #
 Задание:
@@ -29,14 +29,14 @@
 - Смонтировать созданную ранее папку с хоста в контейнер
 - Смонтировать созданный ранее текстовый файл внутрь смонтированной папки, чтобы он пересекался с созданным ранее файлом в этой папке. Просмотреть этот файл.
 
-Ссылка на [третью практическую работу](https://skillbox.ru/media/](https://github.com/BanShee-new/Containerization/tree/main/HW_3) "Репозиторий с файлами")
+Ссылка на [третью практическую работу](https://github.com/BanShee-new/Containerization/tree/main/HW_3/Readme.md "Введение в Docker")
 
 # Урок 4. Dockerfile и слои #
 Задание: необходимо создать Dockerfile, основанный на любом образе (вы в праве выбрать самостоятельно).
 В него необходимо поместить приложение, написанное на любом известном вам языке программирования (Python, Java, C, С#, C++).
 При запуске контейнера должно запускаться самостоятельно написанное приложение.
 
-Ссылка на [четвертую практическую работу](https://skillbox.ru/media/](https://github.com/BanShee-new/Containerization/tree/main/HW_4) "Репозиторий с файлами")
+Ссылка на [четвертую практическую работу](https://github.com/BanShee-new/Containerization/tree/main/HW_4/Readme.md "Dockerfile и слои")
 
 # Урок 5. Docker Compose и Docker Swarm #
 1) создать сервис, состоящий из 2 различных контейнеров: 1 - веб, 2 - БД (compose)
@@ -45,4 +45,4 @@
 3) по итогу на каждой ноде должно быть по 2 работающих контейнера (не обязательно)
 4) выводы зафиксировать
 
-Ссылка на [пятую (итоговую) практическую работу](https://skillbox.ru/media/](https://github.com/BanShee-new/Containerization/tree/main/HW_1) "Итоговая аттестация!")
+Ссылка на [пятую (итоговую) практическую работу](https://github.com/BanShee-new/Containerization/tree/main/HW_5/Readme.md) "Итоговая аттестация!")
