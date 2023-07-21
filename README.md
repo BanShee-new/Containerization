@@ -45,4 +45,4 @@
 3) по итогу на каждой ноде должно быть по 2 работающих контейнера (не обязательно)
 4) выводы зафиксировать
 
-Ссылка на [пятую (итоговую) практическую работу](https://github.com/BanShee-new/Containerization/tree/main/HW_5/Readme.md) "Итоговая аттестация!")
+Ссылка на [пятую (итоговую) практическую работу](https://github.com/BanShee-new/Containerization/tree/main/HW_5/Readme.md "Итоговая аттестация!")
