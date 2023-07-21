@@ -1,4 +1,4 @@
-# Docker Compose и Docker Swarm # 
+# Docker Compose и Docker Swarm #
 
 *Порядок выполнения практического задания:*
 
