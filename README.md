@@ -11,7 +11,7 @@
 5) при создании указать файл, куда записывать логи
 6) после перезагрузки проанализировать логи
 
-Ссылка на [вторую практическую работу](https://skillbox.ru/media/](https://github.com/BanShee-new/Containerization/tree/main/HW_2) "Репозиторий с файлами")
+Ссылка на [вторую практическую работу](https://skillbox.ru/media/](https://github.com/BanShee-new/Containerization/tree/main/HW_2/Readme.md "Механизмы контрольных групп")
 
 # Урок 3. Введение в Docker #
 Задание:
