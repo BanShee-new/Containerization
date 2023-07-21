@@ -1,8 +1,8 @@
-#### Запуск файла java в контейнере
+# Запуск файла java в контейнере #
 
-#### Текст обьяснения:
+*Порядок выполнения практического задания:*
 
-Создадим тестовый файл java с содержимым
+Создаем тестовый файл java с содержимым:
 
 >vim Sample.java
 
@@ -14,12 +14,8 @@ class Sample{
 }
 ```
 
-Создадим докерфайл следующего вида.  
-В этом файле Dockerfile мы извлекли базовый образ Java 11
-из DockerHub.  
-Мы установили рабочий каталог и скопировали файлы в рабочий каталог.  
-После этого мы скомпилировали наше Java-приложение
-и запустили исполняемый файл.
+Создаем докерфайл следующего вида:  
+В файле Dockerfile извлекаем базовый образ Java 11 из DockerHub. Устанавливаем рабочий каталог и копируем файлы в рабочий каталог. После этого компилируем Java-приложение и запускаем исполняемый файл.
 
 >vim Dockerfile
 
@@ -29,15 +25,15 @@ COPY . /var/www/java
 RUN javac Sample.java  
 CMD ["java", "Sample"]  
 
-Создадим образ докера
+Создаем образ докера:
 
 >sudo docker build -t java-demo .
 
-Запустим этот образ
+Запускаем созданный образ: 
 
 >sudo docker run -it java-demo
 
-#### Логи:
+## Логи: ##
 
 root@dmitry-vb:/home/roddg/doktest# vim Sample.java  
 root@dmitry-vb:/home/roddg/doktest# vim Dockerfile  
@@ -63,7 +59,7 @@ root@dmitry-vb:/home/roddg/doktest# sudo docker run -it java-demo
 Welcome to GeekBrains  
 root@dmitry-vb:/home/roddg/doktest#  
 
-#### История(history):
+## История (history): ##
 
 506  docker rm $(docker ps -a -q) --force  
 507  docker ps -a  
@@ -73,6 +69,6 @@ root@dmitry-vb:/home/roddg/doktest#
 511  sudo docker run -it java-demo  
 512  history  
 
-#### Скриншот:
+## Скриншот: ##
 
 ![javaDocker.jpg](img%2FjavaDocker.jpg)
