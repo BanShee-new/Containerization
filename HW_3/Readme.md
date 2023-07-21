@@ -1,48 +1,37 @@
-#### Задание 1
+# Введение в Docker #
 
-<details> 
-  <summary>Задача</summary>
+*Порядок выполнения практического задания N1:*
 
-1) запустить контейнер с БД, отличной от mariaDB, используя инструкции на сайте: https://hub.docker.com/  
-   По желанию - 3) заполнить БД данными через консоль
-4) запустить phpmyadmin (в контейнере) и через веб проверить, что все введенные данные доступны
-
-
-</details>
-
-
-#### Текст обьяснение
-
-Найдем инструкцию по адресу [mysql](https://hub.docker.com/_/mysql)
+Изучаем инструкцию по адресу [mysql](https://hub.docker.com/_/mysql)
 
 Сделаем запуск экземпляра MySQL  
-Где some-mysql - имя, которое вы хотите присвоить своему контейнеру,
-mypw - пароль, который необходимо установить для пользователя MySQL root,
+Где some-mysql - имя, которое присваивается контейнеру,
+mypw - пароль, который устанавливается для пользователя MySQL root,
 и tag - тег, указывающий нужную версию MySQL.
 
 >docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=mypw -d mysql:8.0.33  
 
-Зайдем в интерактивный режим bash нашего контейнера
+Заходим в интерактивный режим bash нашего контейнера:
 
 >docker exec -it some-mysql bash
 
-Подключимся к MySql
+Подключаемся к MySql:
 
 >mysql -u root -pmypw
 
-Создадим базу данных
+Создаем БД:
 
 >create database gbdb;
 
-Проверим что создалась
+Проверяем, что создалось:
 
 >show databases;
 
-Перейдем на использование нашей базы данных
+Переходим на использование БД:
 
 >USE gbdb;
 
-Создадим в ней таблицу
+Создаем в БД таблицу:
 
 >CREATE TABLE sales  
 (  
@@ -51,7 +40,7 @@ order_date DATE NOT NULL,
 bucket INT  
 );
 
-Заполним эту таблицу данными
+Заполняем созданную таблицу данными:
 
 >INSERT INTO sales(order_date, bucket)  
 VALUES  
@@ -71,17 +60,14 @@ VALUES
 (DATE '2023-05-14', 125),  
 (DATE '2023-05-15', 345);
 
-Проверим через браузер, что данные добавились.  
-Для этого создадим еще один контейнер с phpmyadmin
-и установим связь с нашим контейнером, где лежит база данных.  
-Эта команда запускает контейнер phpMyAdmin с именем "myphp", связывает
-его с контейнером MySQL "some-mysql" и пробрасывает порт 8081
-для доступа к phpMyAdmin через веб-браузер на хостовой машине.
+Проверяем через браузер, что данные добавились:  
+Для этого создаем еще один контейнер с phpmyadmin и устанавливаем связь с контейнером, где лежит база данных.  
+Эта команда запускает контейнер phpMyAdmin с именем "myphp", связывает его с контейнером MySQL "some-mysql" и пробрасывает порт 8081 для доступа к phpMyAdmin через веб-браузер на хостовой машине.
 
 >docker run --name myphp -d --link some-mysql:db -p 8081:80 phpmyadmin/phpmyadmin
 
 
-#### Логи
+## Логи: ##
 
 root@dmitry-vb:/# docker images  
 REPOSITORY   TAG       IMAGE ID   CREATED   SIZE  
@@ -219,7 +205,7 @@ Status: Downloaded newer image for phpmyadmin/phpmyadmin:latest
 root@dmitry-vb:/#  
 
 
-#### История(history)
+## История (history): ##
 
 284  docker images  
 285  docker ps  
@@ -230,7 +216,7 @@ root@dmitry-vb:/#
 290  docker exec -it some-mysql bash  
 291  docker run --name myphp -d --link some-mysql:db -p 8081:80 phpmyadmin/phpmyadmin  
 
-#### Скриншот
+## Скриншот: ##
 
 ![runMysql.jpg](img%2FrunMysql.jpg)
 
@@ -241,55 +227,37 @@ root@dmitry-vb:/#
 ![phpmyadminConnect.jpg](img%2FphpmyadminConnect.jpg)
 
 
-#### Задание 2
+*Порядок выполнения практического задания N1:*
 
-<details> 
-  <summary>Задача</summary>
-
-Создать папку, которую мы будем готовы смонтировать в контейнер.   
-В этой папке создать файл test.txt и наполнить данными.  
-В домашней директории создать файл test.txt, который также необходимо 
-будет смонтировать в контейнер и наполнить совершенно другими данными.  
-Создать контейнер из образа ubuntu:22.10.  
-Задать ему имя.  
-Задать hostname.  
-Смонтировать созданную ранее папку с хоста в контейнер.  
-Смонтировать созданный ранее текстовый файл внутрь смонтированной папки, 
-чтобы он пересекался с созданным ранее файлом в этой папке.   
-Просмотреть этот файл.  
-
-</details>
-
-#### Текст обьяснение
-
-Создадим папку, которую мы будем готовы смонтировать в контейнер.
+Создаtv папку, которую будем монтировать в контейнер:
 
 >mkdir hw_test  
 cd hw_test/  
 mkdir folder  
 cd folder/  
 
-В этой папке создадим файл test.txt и наполним его какими-то данными.
+В этой папке создаем файл test.txt и наполняем его данными:
 
 >vim test.txt
 
-В домашней директории создадим файл test.txt и наполнить совершенно другими данными.
+В домашней директории создаем файл test.txt и наполняем другими данными:
 
 >cd /home/roddg  
 vim test.txt
 
-Создадим контейнер из образа ubuntu:22.10, и запустим его в интерактивном режиме.  
+Создаем контейнер из образа ubuntu:22.10, и запусаем его в интерактивном режиме:  
 С именем gb-test.  
 C hostname GB.  
-И примонтируем наши папки с файлами.
+
+Добавляем папки с файлами:
 
 >docker run -it -h GB --name gb-test -v /hw_test/folder:/otherway -v /home/roddg/test.txt:/otherway/test.txt ubuntu:22.10
 
-Просмотреть этот файл.
+Проверяем добавленный файл:
 
 >cat test.txt
 
-#### Логи
+## Логи: ##
 
 root@dmitry-vb:/# mkdir hw_test  
 root@dmitry-vb:/# cd hw_test/  
@@ -312,7 +280,7 @@ root@GB:/otherway# cat test.txt
 Совершенно другие данные  
 root@GB:/otherway#  
 
-#### История(history)
+## История (history): ##
 
 344  mkdir hw_test
 345  cd hw_test/
@@ -326,7 +294,7 @@ root@GB:/otherway#
 353  docker run -it -h GB --name gb-test -v /hw_test/folder:/otherway -v /home/roddg/test.txt:/otherway/test.txt ubuntu:22.10
 354  history
 
-#### Скриншот
+## Скриншот: ##
 
 ![testFolder.jpg](img%2FtestFolder.jpg)
 
